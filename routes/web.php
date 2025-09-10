@@ -13,15 +13,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
 });
 
-Route::get('test', function () {
-    return Inertia::render('dashboard');
+Route::get('test', function () { return Inertia::render('dashboard');
 })->name('test');
 
 Route::get('dishes', function () {
     $dishes = \App\Models\Dishes::all();
 
-    return view("dishes")->with("dishes", $dishes);
-});
+    return view("dishes", compact("dishes"));
+})->name('dishes');
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
