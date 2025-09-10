@@ -1,6 +1,4 @@
-@extends('layout')
 
-    @section('contenu')
     <!DOCTYPE html>
     <html>
     <head>
@@ -19,7 +17,9 @@
     <main>
         <ul>
             @foreach($dishes as $dishes)
-                <li>{{ $dishes->titre }}</li>
+                <li>{{ $dishes->titre}}</li>
+                <li>{{ $dishes->recette }}</li>
+                <li>{{ $dishes->image_url}}</li>
             @endforeach
         </ul>
         <!--<caption>
@@ -55,6 +55,6 @@
     </main>
     </body>
     </html>
-    @endsection
+
 
 

@@ -4,9 +4,12 @@ namespace App\Providers;
 
 use App\Listeners\AssignDefaultRoleToUser;
 
-class EventServiceProvider
+class EventServiceProvider extends
 {
-    public function boot(){
+    public function boot(): void
 
-    }
+    User:
+    {
+        AssignDefaultRoleToUser::class, 'handle';
+    };
 }
