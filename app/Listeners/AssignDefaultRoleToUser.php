@@ -2,9 +2,11 @@
 
 namespace App\Listeners;
 
+use App\Models\User;
+
 class AssignDefaultRoleToUser
 {
-    public function handle(UserCreatedEvent $event) {
-        $event -> user -> assignRole('User') -> save();
+    public function handle(User $user) {
+        $user -> assignRole('User') -> save();
     }
 }

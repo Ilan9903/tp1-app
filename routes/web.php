@@ -18,7 +18,6 @@ Route::get('test', function () { return Inertia::render('dashboard');
 
 Route::get('dishes', function () {
     $dishes = \App\Models\Dishes::all();
-
     return view("dishes", compact("dishes"));
 })->name('dishes');
 
