@@ -116,6 +116,12 @@ return new class extends Migration
             $role = \Spatie\Permission\Models\Role::create(['name' => 'Admin']);
         });
 
+        Schema::table('permissions', function (Blueprint $table) {
+            $permission = \Spatie\Permission\Models\Permission::create(['name' => 'create dishes']);
+            $permission = \Spatie\Permission\Models\Permission::create(['name' => 'edit dishes']);
+            $permission = \Spatie\Permission\Models\Permission::create(['name' => 'delete dishes']);
+        });
+
         app('cache')
             ->store(config('permission.cache.store') != 'default' ? config('permission.cache.store') : null)
             ->forget(config('permission.cache.key'));
