@@ -11,7 +11,7 @@
         <nav>
             <h1>Manger pour les nuls</h1>
             <ul>
-                <li><a href="/dishes">Recette</a></li>
+                <li><a href="#">Recette</a></li>
             </ul>
             <button class="profil">Profile</button>
         </nav>
