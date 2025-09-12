@@ -6,6 +6,6 @@ class AssignDefaultPermToAdmin
 {
     public function handle()
     {
-        
+
     }
 }
