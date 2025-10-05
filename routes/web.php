@@ -17,8 +17,6 @@ Route::get('test', function () { return Inertia::render('dashboard');
 })->name('test');
 
 Route::get('dishes', function () {
-    $dishes = \App\Models\Dishes::all();
-    return view("dishes", compact("dishes"));
 })->name('dishes');
 
 require __DIR__.'/settings.php';

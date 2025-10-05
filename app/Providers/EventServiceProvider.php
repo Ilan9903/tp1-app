@@ -3,13 +3,15 @@
 namespace App\Providers;
 
 use App\Listeners\AssignDefaultRoleToUser;
+use Carbon\Laravel\ServiceProvider;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 
-class EventServiceProvider extends
+class EventServiceProvider extends ServiceProvider
 {
-    public function boot(): void
-
-    User:
-    {
-        AssignDefaultRoleToUser::class, 'handle';
-    };
+    protected $listen = [
+        Registered::class => [
+            AssignDefaultRoleToUser::class,
+        ]
+    ];
 }

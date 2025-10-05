@@ -16,7 +16,8 @@ interface LoginProps {
     canResetPassword: boolean;
 }
 
-export default function Login({ status, canResetPassword }: LoginProps) {
+export function Login({ status, canResetPassword }: LoginProps) {
+    // @ts-ignore
     return (
         <AuthLayout title="Log in to your account" description="Enter your email and password below to log in">
             <Head title="Log in" />
@@ -44,7 +45,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                                 <div className="flex items-center">
                                     <Label htmlFor="password">Password</Label>
                                     {canResetPassword && (
-                                        <TextLink href={request()} className="ml-auto text-sm" tabIndex={5}>
+                                        <TextLink className="ml-auto text-sm" tabIndex={5}>
                                             Forgot password?
                                         </TextLink>
                                     )}

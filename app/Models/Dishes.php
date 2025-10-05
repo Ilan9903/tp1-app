@@ -24,4 +24,9 @@ class Dishes extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function likes(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this -> belongsToMany(dishes::class, 'user_likes_dishes', 'dishes_id', 'user_id');
+    }
 }

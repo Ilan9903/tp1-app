@@ -22,7 +22,7 @@ class DishesFactory extends Factory
     public function definition(): array
     {
         return [
-            'titre' => $this->faker->foodName(),
+            'titre' => $this->faker->title,
             'recette' => $this->faker->text(),
             'image_url' => $this->faker->imageUrl(640, 480, 'food', true),
             // 'likes' => $this->faker->randomDigit(),

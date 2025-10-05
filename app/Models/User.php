@@ -39,6 +39,11 @@ class User extends Authenticatable
         return $this -> hasMany(dishes::class);
     }
 
+    public function likedDishes(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this -> belongsToMany(dishes::class, 'user_likes_dishes', 'user_id', 'dishes_id');
+    }
+
     /**
      * Get the attributes that should be cast.
      *
