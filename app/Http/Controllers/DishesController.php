@@ -82,7 +82,31 @@ class DishesController
         $imageUrl = $dish->image_url;
 
         if ($request->hasFile('image_url')) {
-            
+            if ($dish->image_url) {
+                Storage::disk('public')->delete(str_replace('/storage/', '', $dish->image_url));
+            }
+            $path = $request->file('image')->store('dishes', 'public');
+            $imageUrl = Storage::disk('public')->url($path);
         }
+
+        $dish->update([
+            'title' => $request->title,
+            'recette' => $request->recette,
+            'image_url' => $imageUrl,
+        ]);
+
+        return redirect()->route('dishes.show', $dish)->with('success', 'Dish updated successfully.');
+    }
+
+    public function destroy(Dishes $dish): RedirectResponse
+    {
+        if ($dish->image_url)
+        {
+            Storage::disk('public')->delete(str_replace('/storage/', '', $dish->image_url));
+        }
+
+        $dish->delete();
+
+        return redirect()->route('dishes.index')->with('success', 'Dish deleted successfully.');
     }
 }
